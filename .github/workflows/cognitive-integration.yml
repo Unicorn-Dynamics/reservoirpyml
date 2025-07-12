@@ -1,0 +1,69 @@
+name: "Cognitive Grammar Network Integration"
+
+on:
+  workflow_dispatch:
+    inputs:
+      create_phase:
+        description: 'Phase to create (1-6, or "all" for all phases)'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - 'all'
+        - '1'
+        - '2' 
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+
+jobs:
+  create-cognitive-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub requests
+
+      - name: Validate Issue Templates
+        run: |
+          python .github/workflows/scripts/test_cognitive_integration.py
+
+      - name: Create Cognitive Integration Issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.repository }}
+          PHASE_INPUT: ${{ github.event.inputs.create_phase }}
+        run: |
+          python .github/workflows/scripts/create_cognitive_issues.py
+          
+      - name: Generate Summary Report
+        if: always()
+        run: |
+          echo "## 🧬 Cognitive Grammar Network Integration Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Phase Selection**: ${{ github.event.inputs.create_phase }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository**: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp**: $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📋 Created Issues" >> $GITHUB_STEP_SUMMARY
+          echo "Check the [Issues tab](../../issues) for the newly created cognitive integration issues." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🚀 Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review created issues for detailed implementation plans" >> $GITHUB_STEP_SUMMARY
+          echo "2. Begin with Phase 1: Cognitive Primitives & Hypergraph Encoding" >> $GITHUB_STEP_SUMMARY
+          echo "3. Follow the dependency chain through all 6 phases" >> $GITHUB_STEP_SUMMARY
+          echo "4. Use issue checklists to track progress" >> $GITHUB_STEP_SUMMARY

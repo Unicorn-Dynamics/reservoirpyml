@@ -50,6 +50,13 @@ from .tensor_fragment import TensorFragment, TensorSignature
 from .translator import NodeTranslator, StateTranslator, ModelTranslator
 from .visualizer import CognitiveVisualizer
 
+# Phase 2: ECAN Attention Allocation & Resource Kernel Construction
+from .attention import (
+    ECANAttentionSystem, AttentionValue, ResourceAllocator, AttentionReservoir,
+    AttentionMarket, ResourceScheduler, AttentionBank, MeshTopology, 
+    TopologyModifier, AttentionFlow
+)
+
 __all__ = [
     # Core components
     "HypergraphEncoder",
@@ -65,4 +72,15 @@ __all__ = [
     "NodeTranslator",
     "StateTranslator",
     "ModelTranslator",
+    # Phase 2: ECAN Attention components
+    "ECANAttentionSystem",
+    "AttentionValue",
+    "ResourceAllocator", 
+    "AttentionReservoir",
+    "AttentionMarket",
+    "ResourceScheduler",
+    "AttentionBank",
+    "MeshTopology",
+    "TopologyModifier",
+    "AttentionFlow",
 ]

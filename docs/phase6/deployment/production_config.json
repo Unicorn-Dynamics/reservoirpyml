@@ -1,0 +1,29 @@
+{
+  "system": {
+    "log_level": "INFO",
+    "max_memory": "4GB",
+    "max_cpu_cores": 4,
+    "checkpoint_interval": 300
+  },
+  "cognitive": {
+    "enable_attention": true,
+    "enable_meta_optimization": false,
+    "attention_decay": 0.01,
+    "hypergraph_compression": true
+  },
+  "monitoring": {
+    "metrics_enabled": true,
+    "metrics_port": 9090,
+    "alert_thresholds": {
+      "latency_ms": 100,
+      "memory_usage_percent": 80,
+      "error_rate_percent": 5
+    }
+  },
+  "scaling": {
+    "auto_scaling": true,
+    "min_replicas": 2,
+    "max_replicas": 10,
+    "target_cpu_utilization": 70
+  }
+}

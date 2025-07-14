@@ -1,0 +1,19 @@
+{
+  "system_info": {
+    "timestamp": "2025-07-14 04:22:56",
+    "python_version": "3.12.3 (main, Jun 18 2025, 17:59:45) [GCC 13.3.0]",
+    "reservoirpy_version": "0.3.11"
+  },
+  "benchmarks": {
+    "basic_esn": {
+      "training_time": 0.10806632041931152,
+      "prediction_time": 0.05938434600830078,
+      "rmse": 0.0031985814836435577,
+      "r2_score": 0.9997947660386334,
+      "throughput": 8386.048402897108
+    },
+    "cognitive_enhancement": {
+      "error": "cannot import name 'UnifiedCognitiveSystem' from 'reservoirpy.cognitive' (/home/runner/work/reservoirpyml/reservoirpyml/reservoirpy/cognitive/__init__.py)"
+    }
+  }
+}

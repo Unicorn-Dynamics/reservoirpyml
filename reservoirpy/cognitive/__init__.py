@@ -64,6 +64,16 @@ from .ggml import (
     GGMLReservoir, SymbolicReadout
 )
 
+# Phase 5: Recursive Meta-Cognition & Evolutionary Optimization
+from .meta_optimization import (
+    MetaCognitiveSystem, ReservoirIntrospector, MetaAttentionAllocator,
+    SelfAnalysisModule, EvolutionaryOptimizer, TopologyEvolver,
+    ParameterEvolver, ConnectionEvolver, ArchitectureMutator,
+    PerformanceBenchmarker, ContinuousBenchmarker, SelfTuner,
+    MultiObjectiveOptimizer, FitnessEvaluator, RecursiveImprovement,
+    EmbodiedFeedback, EnsembleEvolver, MetaLearner, HierarchicalOptimizer
+)
+
 __all__ = [
     # Core components
     "HypergraphEncoder",
@@ -100,4 +110,24 @@ __all__ = [
     "attention_weighted_op",
     "GGMLReservoir",
     "SymbolicReadout",
+    # Phase 5: Meta-Optimization components
+    "MetaCognitiveSystem",
+    "ReservoirIntrospector",
+    "MetaAttentionAllocator",
+    "SelfAnalysisModule",
+    "EvolutionaryOptimizer",
+    "TopologyEvolver",
+    "ParameterEvolver",
+    "ConnectionEvolver",
+    "ArchitectureMutator",
+    "PerformanceBenchmarker",
+    "ContinuousBenchmarker",
+    "SelfTuner",
+    "MultiObjectiveOptimizer",
+    "FitnessEvaluator",
+    "RecursiveImprovement",
+    "EmbodiedFeedback",
+    "EnsembleEvolver",
+    "MetaLearner",
+    "HierarchicalOptimizer",
 ]

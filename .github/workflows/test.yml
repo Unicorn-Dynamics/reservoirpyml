@@ -1,5 +1,8 @@
 name: "Testing"
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [master, v0.3.0-maintainance]

@@ -57,6 +57,13 @@ from .attention import (
     TopologyModifier, AttentionFlow
 )
 
+# Phase 3: Neural-Symbolic Synthesis via Custom ggml Kernels  
+from .ggml import (
+    GGMLTensor, GGMLContext, SymbolicKernel, NeuralSymbolicBridge,
+    hypergraph_conv, symbolic_activation, attention_weighted_op,
+    GGMLReservoir, SymbolicReadout
+)
+
 __all__ = [
     # Core components
     "HypergraphEncoder",
@@ -83,4 +90,14 @@ __all__ = [
     "MeshTopology",
     "TopologyModifier",
     "AttentionFlow",
+    # Phase 3: GGML Neural-Symbolic components
+    "GGMLTensor",
+    "GGMLContext",
+    "SymbolicKernel", 
+    "NeuralSymbolicBridge",
+    "hypergraph_conv",
+    "symbolic_activation",
+    "attention_weighted_op",
+    "GGMLReservoir",
+    "SymbolicReadout",
 ]
